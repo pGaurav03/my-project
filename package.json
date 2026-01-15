@@ -1,0 +1,42 @@
+{
+  "name": "playwright-lambdatest-typescript",
+  "version": "1.0.0",
+  "description": "Playwright TypeScript samples for LambdaTest Android and iOS real device testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:all": "playwright test",
+    "test:android": "playwright test --project=Android-Real-Device",
+    "test:ios": "playwright test --project=iOS-Real-Device",
+    "test:desktop": "playwright test --project=Chrome-LambdaTest-Windows --project=Chrome-LambdaTest-macOS",
+    "setup:sdk": "node setup-lambdatest-config.js",
+    "test:sdk:ios": "npm run setup:sdk && npx playwright-node-sdk playwright test tests/ios-real-device.spec.ts",
+    "test:sdk:all": "npm run setup:sdk && npx playwright-node-sdk playwright test",
+    "sdk:init": "npx playwright-node-sdk --init",
+    "build": "tsc"
+  },
+  "keywords": [
+    "playwright",
+    "lambdatest",
+    "typescript",
+    "android",
+    "ios",
+    "mobile-testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "1.53.2",
+    "dotenv": "^16.4.5",
+    "playwright": "1.53.2"
+  },
+  "devDependencies": {
+    "@lambdatest/playwright-node-sdk": "^1.0.2",
+    "@types/chai": "^4.3.11",
+    "@types/node": "^20.11.5",
+    "chai": "^4.3.10",
+    "expect": "^29.7.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

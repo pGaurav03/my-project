@@ -1,0 +1,76 @@
+# LambdaTest Playwright SDK Configuration
+user: username
+accessKey: password
+
+# Build name for your test run
+build: "Playwright iOS Real Device SDK Build"
+
+# Name of the test suite
+name: "Playwright iOS Real Device Test Suite"
+
+# Global base configuration
+framework: "playwright"
+source: "playwright-ios-real-device-sdk:v1"
+
+# Optional: Build and project tags for organization and filtering
+buildTags: ["playwright", "ios", "real-device", "sdk"]
+tags: ["ios", "mobile", "real-device"]
+projectName: "Playwright iOS Real Device Testing"
+
+# Define the number of parallel sessions for each configuration
+parallelsPerPlatform: 1
+
+# Optional: Advanced settings applied to all tests
+network: true # To capture network HAR logs
+console: true # To capture browser console logs
+video: true # To capture video for debugging
+tunnel: false # To test pages behind a VPN/private network or from a local system
+dedicatedProxy: false
+idleTimeout: 300
+timezone: "UTC"
+visual: true # To capture a screenshot for each command
+headless: false # To run tests in headless mode. Note: Video will not be available for headless tests.
+commandLog: true # To capture commands that are executed on the LambdaTest platform
+resolution: "390x844" # Mobile viewport size
+
+# Tunnel-specific settings (uncomment if needed)
+# tunnel_settings:
+#   tunnel: true
+#   autostart: true
+#   tunnelName: "ios-real-device-tunnel"
+#   localdirectory: "./log"
+#   verbose: true
+#   loglevel: "debug"
+
+# Global Playwright configuration (inherited by all platforms unless overridden)
+playwrightConfigOptions:
+  testDir: "tests"
+  # Mobile-specific viewport settings
+  use:
+    viewport: { width: 390, height: 844 }
+    hasTouch: true
+    isMobile: true
+
+# Platform configurations
+# Refer to the capability generator for detailed configurations: https://www.lambdatest.com/capabilities-generator/
+platforms:
+  # iOS Real Device Configuration
+  - platform: "ios"
+    browserName: "pw-webkit" # Playwright WebKit for iOS
+    deviceName: "iPhone 16" # Or other available iOS devices
+    platformVersion: "18" # iOS version
+    isRealMobile: true
+    ltOptions:
+      # Network communication tests (enable network logging)
+      network: true
+      console: true
+      fullHar: true # To capture request and response body (might slow the test execution)
+    playwrightConfigOptions:
+      testDir: "tests"
+      testMatch: ["**/ios-real-device.spec.ts"]
+      # Mobile-specific settings
+      use:
+        viewport: { width: 390, height: 844 }
+        hasTouch: true
+        isMobile: true
+
