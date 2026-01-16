@@ -7,7 +7,7 @@
     "test": "playwright test",
     "test:all": "playwright test",
     "test:android": "playwright test --project=Android-Real-Device",
-    "test:ios": "playwright test --project=iOS-Real-Device",
+    "test:ios": "playwright test tests/ios-real-device.spec.ts --project=iOS-Real-Device",
     "test:desktop": "playwright test --project=Chrome-LambdaTest-Windows --project=Chrome-LambdaTest-macOS",
     "setup:sdk": "node setup-lambdatest-config.js",
     "test:sdk:ios": "npm run setup:sdk && npx playwright-node-sdk playwright test tests/ios-real-device.spec.ts",
@@ -28,7 +28,7 @@
   "dependencies": {
     "@playwright/test": "1.53.2",
     "dotenv": "^16.4.5",
-    "playwright": "1.53.2"
+    "playwright": "1.57.0"
   },
   "devDependencies": {
     "@lambdatest/playwright-node-sdk": "^1.0.2",

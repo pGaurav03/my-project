@@ -1,6 +1,6 @@
 # LambdaTest Playwright SDK Configuration
-user: username
-accessKey: password
+user: gauravplambdatest
+accessKey: WhEvvkcdlezBCKuLQrmYtMzTv3skaFgQMDqpMA6wdHARqpb0j0
 
 # Build name for your test run
 build: "Playwright iOS Real Device SDK Build"
