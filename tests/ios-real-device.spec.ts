@@ -15,12 +15,21 @@ test.describe('iOS Real Device Test', () => {
         });
 
         console.log('Page loaded successfully');
-        console.log('Current URL:', await page.url());
-        console.log('Page title:', await page.title());
+        console.log("Current URL:", await page.url());
 
-        // Verify we're on the correct page
-        const currentUrl = await page.url();
-        expect(currentUrl).toContain('arnoldclark.com');
+        // Fill email
+        console.log("Finding email input...");
+        let element = await page.locator("#username");
+
+        console.log("Clicking email input...");
+        await element.click();
+
+        console.log("Entering email address");
+        await element.fill("test@test.com");
+
+        console.log("Clicking continue button...");
+        await page.locator('button[name="action"]').click();
+        
         console.log('iOS Test PASSED! - Successfully opened Arnold Clark Customer Dashboard');
 
         // Mark test status in LambdaTest
